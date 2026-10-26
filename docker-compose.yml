@@ -1,0 +1,66 @@
+version: '3.9'
+
+services:
+
+  # ─── MySQL Database ──────────────────────────────────────────────────
+  mysql:
+    image: mysql:8.0
+    container_name: parking_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
+      MYSQL_DATABASE: parkingsessiondb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - parking_net
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-rootpassword}"]
+      interval: 15s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  # ─── Spring Boot Backend ─────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: parking_backend
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/parkingsessiondb
+      DB_USERNAME: root
+      DB_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - parking_net
+    restart: on-failure
+
+  # ─── React Frontend (Nginx + Proxy) ──────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: parking_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - parking_net
+    restart: on-failure
+
+# ─── Persistent Storage ────────────────────────────────────────────────
+volumes:
+  mysql_data:
+    driver: local
+
+# ─── Internal Network ──────────────────────────────────────────────────
+networks:
+  parking_net:
+    driver: bridge

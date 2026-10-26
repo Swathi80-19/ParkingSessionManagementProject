@@ -1,0 +1,16 @@
+target/
+*.class
+*.log
+.git
+.gitignore
+.mvn
+mvnw
+mvnw.cmd
+.idea
+*.iml
+.vscode
+.settings
+.classpath
+.project
+.factorypath
+HELP.md

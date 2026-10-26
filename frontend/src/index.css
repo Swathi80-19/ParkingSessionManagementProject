@@ -1,0 +1,380 @@
+/* =========================================================
+   ParkEase – Parking Session Management System
+   Custom CSS — Navy Blue + White Professional Theme
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* ─── CSS Variables ──────────────────────────────────────── */
+:root {
+  --navy: #1a2c56;
+  --navy-dark: #111e3e;
+  --navy-light: #2a3f7a;
+  --accent: #3a6fd8;
+  --accent-light: #5b8def;
+  --success: #28a745;
+  --warning: #fd7e14;
+  --danger: #dc3545;
+  --bg: #f0f4fc;
+  --card-bg: #ffffff;
+  --text: #212529;
+  --text-muted: #6c757d;
+  --border: #dee2e6;
+  --shadow: 0 2px 12px rgba(26, 44, 86, 0.12);
+  --shadow-lg: 0 8px 32px rgba(26, 44, 86, 0.18);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.2s ease;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2ff 0%, #f0f4fc 50%, #e8f0fe 100%);
+}
+
+/* ─── Navbar ─────────────────────────────────────────────── */
+.navbar-custom {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-light) 100%);
+  border-bottom: 3px solid var(--accent);
+  padding: 0.75rem 0;
+}
+
+.brand-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.navbar-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 6px rgba(255,255,255,0.3));
+}
+
+/* ─── Page Header ────────────────────────────────────────── */
+.page-header {
+  padding: 0.5rem 0;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* ─── Summary Cards ──────────────────────────────────────── */
+.summary-card {
+  border-radius: var(--radius);
+  padding: 1.35rem 1.25rem;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+
+.summary-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -20px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+}
+
+.summary-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-blue  { background: linear-gradient(135deg, #1a2c56 0%, #2a4090 100%); }
+.card-green { background: linear-gradient(135deg, #155724 0%, #28a745 100%); }
+.card-orange{ background: linear-gradient(135deg, #963b00 0%, #fd7e14 100%); }
+.card-purple{ background: linear-gradient(135deg, #4a0080 0%, #9b59b6 100%); }
+
+.summary-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.summary-value {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  letter-spacing: -1px;
+}
+
+.summary-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* ─── Section Cards ──────────────────────────────────────── */
+.card {
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow) !important;
+  overflow: hidden;
+}
+
+.section-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  color: #ffffff !important;
+  border-bottom: none !important;
+  padding: 1rem 1.25rem;
+}
+
+.section-header h5 {
+  font-weight: 700;
+}
+
+/* ─── Form Styling ───────────────────────────────────────── */
+.form-control, .form-select {
+  border-radius: var(--radius-sm) !important;
+  border-color: var(--border) !important;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  font-size: 0.92rem;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(58,111,216,0.15) !important;
+}
+
+.form-label {
+  font-size: 0.88rem;
+  color: var(--navy);
+  margin-bottom: 0.4rem;
+}
+
+.btn-add {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.btn-add:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  color: #fff;
+}
+
+/* ─── Table ──────────────────────────────────────────────── */
+.table-parking thead tr {
+  background-color: #f1f4fb;
+  border-bottom: 2px solid #d0d9f0;
+}
+
+.table-parking thead th {
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.85rem 1rem;
+  border: none;
+}
+
+.table-parking tbody td {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #eef1f8;
+}
+
+.table-parking tbody tr:hover {
+  background-color: #f5f8ff;
+}
+
+.vehicle-number {
+  font-family: 'Courier New', monospace;
+  color: var(--navy);
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+/* ─── Badges ─────────────────────────────────────────────── */
+.badge-paid {
+  background: linear-gradient(135deg, #155724, #28a745) !important;
+  color: #fff !important;
+  font-size: 0.78rem;
+  padding: 0.35em 0.7em;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.badge-unpaid {
+  background: linear-gradient(135deg, #963b00, #fd7e14) !important;
+  color: #fff !important;
+  font-size: 0.78rem;
+  padding: 0.35em 0.7em;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* ─── Table Action Buttons ───────────────────────────────── */
+.btn-view {
+  background-color: #e8f0fe;
+  color: var(--navy);
+  border: 1px solid #c5d5f8;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background-color var(--transition);
+}
+
+.btn-view:hover {
+  background-color: #d0dffc;
+  color: var(--navy-dark);
+}
+
+.btn-delete {
+  background-color: #fff0f0;
+  color: var(--danger);
+  border: 1px solid #f5c2c7;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: background-color var(--transition);
+}
+
+.btn-delete:hover {
+  background-color: #fad7d7;
+  color: #a71d2a;
+}
+
+/* ─── Modals ─────────────────────────────────────────────── */
+.modal-backdrop-custom {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1040;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.15s ease;
+}
+
+.modal-custom {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  animation: slideUp 0.2s ease;
+}
+
+.modal-custom .modal-dialog {
+  margin: 0;
+  width: 100%;
+  max-width: 540px;
+  padding: 1rem;
+}
+
+.modal-content {
+  border-radius: var(--radius) !important;
+  border: none !important;
+  overflow: hidden;
+}
+
+.modal-header.section-header {
+  padding: 1rem 1.25rem;
+}
+
+/* ─── Detail Grid (in modals) ────────────────────────────── */
+.detail-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.8rem;
+  background: #f8faff;
+  border-radius: var(--radius-sm);
+  border: 1px solid #e8edf8;
+}
+
+.detail-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* ─── Animations ─────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Alerts ─────────────────────────────────────────────── */
+.alert {
+  border-radius: var(--radius-sm) !important;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 576px) {
+  .page-title { font-size: 1.35rem; }
+  .summary-value { font-size: 1.5rem; }
+  .summary-card { padding: 1rem; }
+  .table-parking thead th,
+  .table-parking tbody td { padding: 0.6rem 0.5rem; font-size: 0.8rem; }
+}
