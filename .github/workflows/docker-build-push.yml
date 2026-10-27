@@ -41,8 +41,8 @@ jobs:
           file: ./backend/Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/docker-backend-${{ env.STUDENT_ID }}:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/docker-backend-${{ env.STUDENT_ID }}:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/parkingsession-backend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/parkingsession-backend:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -54,13 +54,13 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/docker-frontend-${{ env.STUDENT_ID }}:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/docker-frontend-${{ env.STUDENT_ID }}:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/parkingsession-frontend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/parkingsession-frontend:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       # 6. Summary
       - name: Print image names
         run: |
-          echo "✅ Backend image:  ${{ secrets.DOCKERHUB_USERNAME }}/docker-backend-${{ env.STUDENT_ID }}:latest"
-          echo "✅ Frontend image: ${{ secrets.DOCKERHUB_USERNAME }}/docker-frontend-${{ env.STUDENT_ID }}:latest"
+          echo "✅ Backend image:  ${{ secrets.DOCKERHUB_USERNAME }}/parkingsession-backend:latest"
+          echo "✅ Frontend image: ${{ secrets.DOCKERHUB_USERNAME }}/parkingsession-frontend:latest"
